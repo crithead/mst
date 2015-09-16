@@ -2,6 +2,7 @@ CC = g++
 CXXFLAGS = -O2 -Wall -pedantic -std=c++11
 
 SOURCES := minspantree.cpp
+SOURCES += edge.cpp
 SOURCES += point.cpp
 
 OBJECTS := $(SOURCES:.cpp=.o)
@@ -11,11 +12,13 @@ EXEC = mst
 
 all: $(EXEC)
 
-$(EXEC): $(OBJECTS) $(DEPENDS)
+$(EXEC): depends $(OBJECTS)
 	$(CC) $(CXXFLAGS) -o $(EXEC) $(OBJECTS)
 
 %.d : %.cpp
 	$(CC) -MM -E $< -o $@
+
+depends: $(DEPENDS)
 
 -include $(DEPENDS)
 

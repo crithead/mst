@@ -4,12 +4,15 @@
 #include <iostream>
 #include <vector>
 
+#include "edge.hpp"
 #include "point.hpp"
 
 using namespace std;
 
 static void load( const string& filename, vector<point>& );
 static void print( vector<point>& );
+static void print( vector<edge>& );
+static void find_mininimum_spanning_tree( const vector<point>&, vector<edge>& );
 
 int main( int argc, char **argv )
 {
@@ -22,9 +25,12 @@ int main( int argc, char **argv )
 
 		try {
 			vector<point> points;
+			vector<edge> edges;
 
 			load( filename, points );
+			find_mininimum_spanning_tree( points, edges );
 			print( points );
+			print( edges );
 		}
 		catch (const exception& e) {
 			cout << "File     : " << filename << endl;
@@ -49,4 +55,17 @@ static void print( vector<point>& pts )
 {
 	cout << __FUNCTION__ << endl;
 	cout << "number of points = " << pts.size() << endl;
+}
+
+static void print( vector<edge>& egs )
+{
+	cout << __FUNCTION__ << endl;
+	cout << "number of edges = " << egs.size() << endl;
+}
+
+static void find_mininimum_spanning_tree(
+		const vector<point>& points,
+		vector<edge>& edges )
+{
+	cout << __FUNCTION__ << endl;
 }
