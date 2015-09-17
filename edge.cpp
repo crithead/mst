@@ -4,6 +4,17 @@
 #include "edge.hpp"
 #include "point.hpp"
 
+//
+// Calculate the distance between two points.
+//
+float edge::calc_length( const point& a, const point& b )
+{
+	int dx = a.get_x() - b.get_x();
+	int dy = a.get_y() - b.get_y();
+	return static_cast<float>(
+			std::sqrt( static_cast<double>( dx * dx + dy * dy ) ) );
+}
+
 edge::edge()
 {
 	throw std::runtime_error( "an edge must be initialized with  vertices" );
@@ -45,13 +56,6 @@ float edge::get_length( void ) const
 	return this->length;
 }
 
-float edge::calc_length( const point& a, const point& b ) const
-{
-	int dx = a.get_x() - b.get_x();
-	int dy = a.get_y() - b.get_y();
-	return static_cast<float>(
-			std::sqrt( static_cast<double>( dx * dx + dy * dy ) ) );
-}
 
 edge& edge::operator=( edge const& that )
 {
@@ -65,7 +69,8 @@ edge& edge::operator=( edge const& that )
 
 bool edge::operator==( const edge& that ) const
 {
-	return ( this->a == that.a ) && ( this->b == that.b );
+	return ( this->a == that.a && this->b == that.b ) ||
+		   ( this->a == that.b && this->b == that.a );
 }
 
 bool edge::operator!=( const edge& that ) const
