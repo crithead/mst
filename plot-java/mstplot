@@ -1,0 +1,6 @@
+#! /bin/sh
+if [ ! -e dist/mstplot.jar ]; then
+    ant jar
+fi
+DATA=$(ls data/graph-???.graph)
+java -jar dist/mstplot.jar --verbose $DATA

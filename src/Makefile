@@ -1,5 +1,5 @@
 CC = g++
-CXXFLAGS = -O2 -Wall -pedantic -std=c++11
+CXXFLAGS = -O2 -Wall -Wpedantic -std=c++11
 
 SOURCES := minspantree.cpp
 SOURCES += edge.cpp

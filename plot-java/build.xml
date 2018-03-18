@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<project name="MST Plot (Java)" default="compile" basedir=".">
+    <property name="dir.src" value="." />
+    <property name="dir.build" value="build" />
+    <property name="dir.dist" value="dist" />
+    <property name="dir.doc" value="doc" />
+
+    <target name ="prepare">
+        <mkdir dir="${dir.build}" />
+        <mkdir dir="${dir.dist}" />
+        <mkdir dir="${dir.doc}" />
+    </target>
+
+    <target name ="clean" description="Remove all generated files." >
+        <delete dir="${dir.build}" />
+        <delete dir="${dir.dist}" />
+        <delete dir="${dir.doc}" />
+    </target>
+
+    <target name ="compile"
+            depends="prepare"
+            description="Compile all source code.">
+        <javac srcdir="${dir.src}" 
+                destdir="${dir.build}"
+                includeantruntime="false" />
+    </target>
+
+    <target name ="jar"
+            depends="compile"
+            description="Gernerate mstplot.jar in 'dist' directory.">
+        <jar jarfile="${dir.dist}/mstplot.jar"
+            basedir="${dir.build}"
+            manifest="${dir.src}/manifest.mf" />
+    </target>
+
+</project>
+
