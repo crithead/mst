@@ -2,5 +2,5 @@
 if [ ! -e dist/mstplot.jar ]; then
     ant jar
 fi
-DATA=$(ls data/graph-???.graph)
+DATA=$(ls data/graph-???.csv)
 java -jar dist/mstplot.jar --verbose $DATA

@@ -2,5 +2,10 @@
 *.o
 *.so
 *.a
+*.swp
 mst
+plot-java/build
+plot-java/dist
+plot-java/doc
+data/*.png
 
