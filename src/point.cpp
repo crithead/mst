@@ -78,7 +78,7 @@ bool point::operator<( const point& that ) const
 		if ( da < db )
 			less_than = true;
 		else
-			less_than = true;
+			less_than = false;
 	}
 
 	return less_than;
