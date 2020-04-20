@@ -3,7 +3,7 @@
 *.so
 *.a
 *.swp
-mst
+/src/mst
 plot-java/build
 plot-java/dist
 plot-java/doc
