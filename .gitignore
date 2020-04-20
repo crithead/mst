@@ -4,6 +4,7 @@
 *.a
 *.swp
 /src/mst
+/plot/mstplot
 plot-java/build
 plot-java/dist
 plot-java/doc
