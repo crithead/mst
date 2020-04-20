@@ -22,7 +22,7 @@ This project uses PNGwriter to generate the output graphics.  It needs zlib,
 libpng and FreeType fonts.
 
 ```
-$ sudo apt-get install libpng12-dev
+$ sudo apt-get install libpng-dev
 $ sudo apt-get install libfreetype6-dev         # optional
 ```
 
@@ -33,18 +33,17 @@ http://pngwriter.sourceforge.net
 https://github.com/pngwriter/pngwriter.git
 
 1.  PNGWriter added as a submodule.
-1.1.    Install 'libfreetype6-dev' and 'libpng12-dev'
-1.2.    Disable building with FreeType fonts by uncommenting
-        P_FREETYPE = 1
-        in 'makefile.include.linux'
-1.3.    Fix compiler warnings (optional)
+    1.    Install 'libfreetype6-dev' and 'libpng12-dev'
+    2.    Disable building with FreeType fonts by uncommenting
+          <code>P_FREETYPE = 1</code>
+          in 'makefile.include.linux'
+    3.    Fix compiler warnings (optional)
 
 ## Not a submodule
 
 PNGWriter should be include as a submodule, but the code here is just a
 snapshot (with some minor fixes) so the modifications to get it to compile
 cleanly aren't needed every time the repository is cloned.
-
 
 ## To Do
 *   Add some padding to the graph so the vertices near the edge of the
